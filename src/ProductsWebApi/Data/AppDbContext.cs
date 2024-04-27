@@ -1,9 +1,9 @@
-﻿using DotApiMicro.Data.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
+using ProductsWebApi.Data.Models;
 
-namespace DotApiMicro.Data
+namespace ProductsWebApi.Data
 {
     public class AppDbContext : DbContext
     {

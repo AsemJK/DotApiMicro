@@ -1,8 +1,8 @@
-﻿using DotApiMicro.Data;
-using DotApiMicro.Data.Models;
-using DotApiMicro.Services.Implementations;
+﻿using ProductsWebApi.Data;
+using ProductsWebApi.Data.Models;
+using ProductsWebApi.Services.Implementations;
 
-namespace DotApiMicro.Services
+namespace ProductsWebApi.Services
 {
     public class ProductService : IProductService
     {
@@ -29,10 +29,18 @@ namespace DotApiMicro.Services
             return _repositoryProducts.Update(product);
         }
 
-        public Task Delete(Product product)
+        public Task Delete(int id)
         {
-            _repositoryProducts.Delete(product);
-            return Task.CompletedTask;
+            var product = _repositoryProducts.Get(id);
+            if (product != null)
+            {
+                _repositoryProducts.Delete(product.Id);
+                return Task.CompletedTask;
+            }
+            else
+            {
+                throw new Exception("Product not found");
+            }
         }
     }
 }

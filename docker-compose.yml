@@ -20,7 +20,7 @@ services:
     image: ${DOCKER_REGISTRY-}dotapimicro
     build:
       context: .
-      dockerfile: src/Dockerfile
+      dockerfile: src/ProductsWebApi/Dockerfile
     networks: 
       - net_dotapimicro
     ports:

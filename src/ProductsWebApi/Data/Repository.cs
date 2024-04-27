@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace DotApiMicro.Data
+namespace ProductsWebApi.Data
 {
     public class Repository<T> : IRepository<T> where T : class
     {
@@ -38,8 +38,9 @@ namespace DotApiMicro.Data
             return obj.Entity;
         }
 
-        public void Delete(T entity)
+        public void Delete(int id)
         {
+            var entity = _entities.Find(id);
             _entities.Remove(entity);
             _context.SaveChanges();
         }

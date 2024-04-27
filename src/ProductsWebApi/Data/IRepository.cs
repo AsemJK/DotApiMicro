@@ -1,4 +1,4 @@
-﻿namespace DotApiMicro.Data
+﻿namespace ProductsWebApi.Data
 {
     public interface IRepository<T> where T : class
     {
@@ -6,6 +6,6 @@
         T Get(int id);
         T Add(T entity);
         T Update(T entity);
-        void Delete(T entity);
+        void Delete(int id);
     }
 }

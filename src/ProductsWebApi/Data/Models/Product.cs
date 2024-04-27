@@ -1,4 +1,4 @@
-﻿namespace DotApiMicro.Data.Models
+﻿namespace ProductsWebApi.Data.Models
 {
     public class Product
     {

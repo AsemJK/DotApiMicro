@@ -1,7 +1,7 @@
-using DotApiMicro.Data;
-using DotApiMicro.Services;
-using DotApiMicro.Services.Implementations;
 using Microsoft.EntityFrameworkCore;
+using ProductsWebApi.Data;
+using ProductsWebApi.Services;
+using ProductsWebApi.Services.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 

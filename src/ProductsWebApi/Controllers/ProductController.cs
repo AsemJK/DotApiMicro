@@ -1,8 +1,8 @@
-﻿using DotApiMicro.Data.Models;
-using DotApiMicro.Services.Implementations;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProductsWebApi.Data.Models;
+using ProductsWebApi.Services.Implementations;
 
-namespace DotApiMicro.Controllers
+namespace ProductsWebApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -24,6 +24,16 @@ namespace DotApiMicro.Controllers
         public async Task<IActionResult> Post(Product product)
         {
             return Ok(_productService.Add(product));
+        }
+        [HttpPut]
+        public async Task<IActionResult> Put(Product product)
+        {
+            return Ok(_productService.Update(product));
+        }
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            return Ok(_productService.Delete(id));
         }
     }
 }

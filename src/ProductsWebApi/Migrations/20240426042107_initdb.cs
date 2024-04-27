@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace DotApiMicro.Migrations
+namespace ProductsWebApi.Migrations
 {
     /// <inheritdoc />
     public partial class initdb : Migration
