@@ -1,0 +1,33 @@
+version: '3.4'
+
+networks:
+  net_dotapimicro:
+   
+services:
+
+  projectdb:
+    container_name: project-db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Password123"
+    networks: 
+      - net_dotapimicro
+    ports:
+      - 8130:1433
+  dotapimicro:
+    container_name: dotmicro-api
+    image: ${DOCKER_REGISTRY-}dotapimicro
+    build:
+      context: .
+      dockerfile: src/Dockerfile
+    networks: 
+      - net_dotapimicro
+    ports:
+      - 8131:80
+      - 8132:443
+    environment:
+      - DB_HOST=project-db
+      - DB_NAME=dotmicrodb
+      - DB_USER=sa
+      - DB_PASSWORD=Password123
